@@ -1,0 +1,11 @@
+                    onClick = {
+                        val sdf = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
+                        val fileName = "WorkReport_${sdf.format(Date())}.pdf"
+                        if (activity != null) {
+                            adManager.showRewardedAd(activity) {
+                                createDocumentLauncher.launch(fileName)
+                            }
+                        } else {
+                            createDocumentLauncher.launch(fileName)
+                        }
+                    },

@@ -1,0 +1,1 @@
+sed -i 's/val createDocumentLauncher = rememberLauncherForActivityResult(/val activity = context as? android.app.Activity\n    val adManager = (context.applicationContext as com.example.MasonApplication).adManager\n\n    val createDocumentLauncher = rememberLauncherForActivityResult(/g' app/src/main/java/com/example/ui/screens/ReportScreen.kt

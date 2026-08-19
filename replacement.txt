@@ -1,0 +1,7 @@
+        val combinedLogs = remember(personTx) {
+            val list = mutableListOf<LedgerLogItem>()
+            personTx.forEach {
+                list.add(LedgerLogItem(it.date, it.unit, it.unit * person.dailyRate, it.advance, it.reward, it.penalty))
+            }
+            list.sortedByDescending { it.date }
+        }

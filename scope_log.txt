@@ -1,0 +1,388 @@
+Line 67: scope=1 : ) {
+Line 69: scope=2 : val triggerAd = {
+Line 71: scope=3 : if (activity != null) {
+Line 74: scope=2 : }
+Line 75: scope=1 : }
+Line 86: scope=2 : LaunchedEffect(sharedPref) {
+Line 88: scope=3 : allPrefs.forEach { (key, value) ->
+Line 89: scope=4 : if (value is String) {
+Line 91: scope=3 : }
+Line 92: scope=2 : }
+Line 93: scope=1 : }
+Line 95: scope=2 : val saveStyle = { key: String, bgColor: String, textColor: String, isBold: Boolean, isItalic: Boolean ->
+Line 99: scope=1 : }
+Line 117: scope=2 : topBar = {
+Line 120: scope=3 : title = {
+Line 121: scope=4 : Row(verticalAlignment = Alignment.CenterVertically) {
+Line 122: scope=5 : Column(modifier = Modifier.clickable { floorDropdownExpanded = true }.weight(1f, fill = false)) {
+Line 130: scope=6 : ) {
+Line 135: scope=7 : floors.forEach { floor ->
+Line 140: scope=6 : }
+Line 141: scope=5 : }
+Line 142: scope=4 : }
+Line 143: scope=5 : if (selectedFloorId != null) {
+Line 145: scope=6 : if (currentFloor != null) {
+Line 146: scope=7 : IconButton(onClick = { floorToDelete = currentFloor }) {
+Line 148: scope=6 : }
+Line 149: scope=5 : }
+Line 150: scope=4 : }
+Line 151: scope=3 : }
+Line 152: scope=2 : },
+Line 153: scope=3 : actions = {
+Line 154: scope=4 : IconButton(onClick = { showGlobalCalculator = true }) {
+Line 156: scope=3 : }
+Line 157: scope=4 : IconButton(onClick = { showAddFloor = true }) {
+Line 159: scope=3 : }
+Line 160: scope=4 : IconButton(onClick = { showAddFlat = true }) {
+Line 162: scope=3 : }
+Line 163: scope=4 : IconButton(onClick = onNavigateToPersons) {
+Line 165: scope=3 : }
+Line 166: scope=4 : IconButton(onClick = onNavigateToCalendar) {
+Line 168: scope=3 : }
+Line 169: scope=4 : IconButton(onClick = onNavigateToReport) {
+Line 171: scope=3 : }
+Line 173: scope=4 : Box {
+Line 174: scope=5 : IconButton(onClick = { overflowMenuExpanded = true }) {
+Line 176: scope=4 : }
+Line 177: scope=5 : DropdownMenu(expanded = overflowMenuExpanded, onDismissRequest = { overflowMenuExpanded = false }) {
+Line 181: scope=4 : }
+Line 182: scope=3 : }
+Line 183: scope=2 : },
+Line 187: scope=3 : modifier = Modifier.drawBehind {
+Line 194: scope=2 : }
+Line 196: scope=1 : },
+Line 197: scope=2 : floatingActionButton = {
+Line 199: scope=3 : Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(16.dp)) {
+Line 200: scope=4 : if (fabExpanded) {
+Line 215: scope=3 : }
+Line 220: scope=4 : ) {
+Line 222: scope=3 : }
+Line 223: scope=2 : }
+Line 225: scope=3 : if (showAddFloor) {
+Line 230: scope=4 : text = {
+Line 237: scope=3 : },
+Line 238: scope=4 : confirmButton = {
+Line 239: scope=5 : Button(onClick = {
+Line 240: scope=6 : if (newFloorName.isNotBlank()) {
+Line 244: scope=5 : }
+Line 246: scope=4 : },
+Line 247: scope=3 : },
+Line 248: scope=4 : dismissButton = {
+Line 250: scope=3 : }
+Line 252: scope=2 : }
+Line 254: scope=3 : if (floorToDelete != null) {
+Line 259: scope=4 : confirmButton = {
+Line 261: scope=5 : onClick = {
+Line 262: scope=6 : floorToDelete?.let {
+Line 264: scope=7 : if (selectedFloorId == it.id) {
+Line 266: scope=6 : }
+Line 267: scope=5 : }
+Line 269: scope=4 : },
+Line 271: scope=5 : ) {
+Line 273: scope=4 : }
+Line 274: scope=3 : },
+Line 275: scope=4 : dismissButton = {
+Line 277: scope=3 : }
+Line 279: scope=2 : }
+Line 281: scope=3 : if (showAddFlat) {
+Line 290: scope=4 : text = {
+Line 291: scope=5 : Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+Line 295: scope=6 : ) {
+Line 304: scope=7 : ExposedDropdownMenu(expanded = floorDropdownExpanded, onDismissRequest = { floorDropdownExpanded = false }) {
+Line 305: scope=8 : floors.forEach { floor ->
+Line 307: scope=7 : }
+Line 308: scope=6 : }
+Line 309: scope=5 : }
+Line 323: scope=4 : }
+Line 324: scope=3 : },
+Line 325: scope=4 : confirmButton = {
+Line 326: scope=5 : Button(onClick = {
+Line 327: scope=6 : if (newFlatName.isNotBlank() && flatFloorId != null) {
+Line 332: scope=5 : }
+Line 334: scope=4 : },
+Line 335: scope=5 : dismissButton = {
+Line 336: scope=6 : TextButton(onClick = { showAddFlat = false Text("Cancel")
+Line 337: scope=5 : }
+Line 340: scope=6 : if (showAddWorkColumn) {
+Line 349: scope=7 : text = {
+Line 350: scope=8 : Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+Line 361: scope=9 : ) {
+Line 364: scope=8 : }
+Line 365: scope=9 : if (!isSequential) {
+Line 369: scope=10 : ) {
+Line 381: scope=11 : ) {
+Line 386: scope=12 : workColumns.forEach { col ->
+Line 391: scope=11 : }
+Line 392: scope=10 : }
+Line 393: scope=9 : }
+Line 394: scope=8 : }
+Line 395: scope=7 : }
+Line 396: scope=6 : },
+Line 397: scope=7 : confirmButton = {
+Line 398: scope=8 : Button(onClick = {
+Line 399: scope=9 : if (newColName.isNotBlank()) {
+Line 403: scope=8 : }
+Line 405: scope=7 : },
+Line 406: scope=8 : dismissButton = {
+Line 407: scope=9 : TextButton(onClick = { showAddWorkColumn = false Text("Cancel")
+Line 408: scope=8 : }
+Line 410: scope=9 : if (editingWorkColumn != null) {
+Line 427: scope=10 : text = {
+Line 428: scope=11 : Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+Line 446: scope=12 : ) {
+Line 449: scope=11 : }
+Line 450: scope=12 : if (!isSequential) {
+Line 454: scope=13 : ) {
+Line 466: scope=14 : ) {
+Line 471: scope=15 : workColumns.forEach { col ->
+Line 472: scope=16 : if (col.id != editingWorkColumn!!.id) {
+Line 477: scope=15 : }
+Line 478: scope=14 : }
+Line 479: scope=13 : }
+Line 480: scope=12 : }
+Line 481: scope=11 : }
+Line 490: scope=12 : onStyleChange = { bg, tc, bold, italic ->
+Line 496: scope=11 : }
+Line 500: scope=10 : }
+Line 501: scope=9 : },
+Line 502: scope=10 : confirmButton = {
+Line 503: scope=11 : Button(onClick = {
+Line 504: scope=12 : if (newColName.isNotBlank()) {
+Line 514: scope=11 : }
+Line 517: scope=10 : }
+Line 518: scope=9 : },
+Line 519: scope=10 : dismissButton = {
+Line 520: scope=11 : Row {
+Line 521: scope=12 : TextButton(onClick = {
+Line 524: scope=11 : }, colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFB91C1C))) { Text("Delete") }
+Line 526: scope=10 : }
+Line 527: scope=9 : }
+Line 529: scope=8 : }
+Line 531: scope=9 : if (editingFlat != null) {
+Line 542: scope=10 : if (showFlatCalculator) {
+Line 545: scope=11 : onApplyArea = { calculatedArea ->
+Line 547: scope=10 : }
+Line 549: scope=9 : }
+Line 554: scope=10 : text = {
+Line 555: scope=11 : Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+Line 579: scope=12 : onStyleChange = { bg, tc, bold, italic ->
+Line 585: scope=11 : }
+Line 594: scope=12 : ) {
+Line 598: scope=11 : }
+Line 599: scope=10 : }
+Line 600: scope=9 : },
+Line 601: scope=10 : confirmButton = {
+Line 602: scope=11 : Button(onClick = {
+Line 603: scope=12 : if (newFlatName.isNotBlank()) {
+Line 608: scope=11 : }
+Line 611: scope=10 : }
+Line 612: scope=9 : },
+Line 613: scope=10 : dismissButton = {
+Line 614: scope=11 : Row {
+Line 615: scope=12 : TextButton(onClick = {
+Line 619: scope=11 : }, colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFB91C1C))) { Text("Delete") }
+Line 621: scope=10 : }
+Line 622: scope=9 : }
+Line 624: scope=8 : }
+Line 626: scope=9 : if (showGlobalCalculator) {
+Line 630: scope=8 : }
+Line 632: scope=9 : if (showBackupDialog) {
+Line 636: scope=8 : }
+Line 638: scope=9 : if (selectedCellForAction != null) {
+Line 653: scope=10 : if (showCellCalculator) {
+Line 656: scope=11 : onApplyDescription = { calculatedText ->
+Line 657: scope=12 : if (entry != null) {
+Line 661: scope=11 : }
+Line 662: scope=10 : }
+Line 664: scope=9 : }
+Line 668: scope=10 : title = {
+Line 675: scope=9 : },
+Line 676: scope=10 : text = {
+Line 680: scope=11 : ) {
+Line 681: scope=12 : if (entry != null) {
+Line 691: scope=13 : ) {
+Line 692: scope=14 : Column {
+Line 706: scope=15 : if (entry.helper != null) {
+Line 712: scope=14 : }
+Line 718: scope=13 : }
+Line 719: scope=12 : }
+Line 721: scope=13 : if (!entry.workEntry.description.isNullOrBlank()) {
+Line 728: scope=14 : ) {
+Line 732: scope=13 : }
+Line 735: scope=12 : }
+Line 743: scope=13 : ) {
+Line 750: scope=12 : }
+Line 751: scope=11 : }
+Line 760: scope=12 : onStyleChange = { bg, tc, bold, italic ->
+Line 766: scope=11 : }
+Line 777: scope=12 : ) {
+Line 781: scope=11 : }
+Line 782: scope=10 : }
+Line 783: scope=9 : },
+Line 784: scope=10 : confirmButton = {
+Line 788: scope=11 : ) {
+Line 789: scope=12 : if (entry != null) {
+Line 791: scope=13 : onClick = {
+Line 794: scope=12 : },
+Line 798: scope=13 : ) {
+Line 802: scope=12 : }
+Line 805: scope=13 : onClick = {
+Line 808: scope=12 : },
+Line 812: scope=13 : ) {
+Line 814: scope=12 : }
+Line 815: scope=11 : }
+Line 816: scope=10 : }
+Line 817: scope=9 : },
+Line 818: scope=10 : dismissButton = {
+Line 822: scope=11 : ) {
+Line 824: scope=10 : }
+Line 825: scope=9 : }
+Line 827: scope=8 : }
+Line 828: scope=7 : },
+Line 829: scope=8 : bottomBar = {
+Line 831: scope=7 : }
+Line 832: scope=8 : ) { padding ->
+Line 835: scope=9 : Column(modifier = Modifier.padding(padding).fillMaxSize().background(CleanBackground)) {
+Line 844: scope=10 : trailingIcon = {
+Line 845: scope=11 : if (searchQuery.isNotEmpty()) {
+Line 846: scope=12 : IconButton(onClick = { searchQuery = "" }) {
+Line 848: scope=11 : }
+Line 849: scope=10 : }
+Line 850: scope=9 : },
+Line 865: scope=10 : Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+Line 869: scope=9 : }
+Line 875: scope=10 : ) {
+Line 887: scope=11 : ) {
+Line 891: scope=10 : }
+Line 896: scope=11 : ) {
+Line 900: scope=10 : }
+Line 901: scope=9 : }
+Line 904: scope=10 : val displayedFlats = remember(allDisplayedFlats, searchQuery, allEntries) {
+Line 905: scope=11 : if (searchQuery.isBlank()) {
+Line 909: scope=12 : allDisplayedFlats.filter { flat ->
+Line 914: scope=13 : val entryMatches = entriesForFlat.any { entry: com.example.data.WorkEntryWithDetails ->
+Line 919: scope=12 : }
+Line 922: scope=11 : }
+Line 923: scope=10 : }
+Line 924: scope=9 : }
+Line 927: scope=10 : Column(modifier = Modifier.fillMaxSize()) {
+Line 935: scope=11 : ) {
+Line 936: scope=12 : Column {
+Line 942: scope=13 : .drawBehind {
+Line 949: scope=12 : }
+Line 950: scope=13 : ) {
+Line 957: scope=14 : .drawBehind {
+Line 970: scope=13 : },
+Line 972: scope=14 : ) {
+Line 974: scope=13 : }
+Line 982: scope=14 : .drawBehind {
+Line 989: scope=13 : },
+Line 991: scope=14 : ) {
+Line 992: scope=15 : Column(horizontalAlignment = Alignment.CenterHorizontally) {
+Line 995: scope=14 : }
+Line 996: scope=13 : }
+Line 999: scope=14 : Row(modifier = Modifier.horizontalScroll(horizontalScrollState)) {
+Line 1000: scope=15 : workColumns.sortedBy { it.displayOrder }.forEachIndexed { index, col ->
+Line 1020: scope=16 : .drawBehind {
+Line 1027: scope=15 : },
+Line 1029: scope=16 : ) {
+Line 1030: scope=17 : Column(horizontalAlignment = Alignment.CenterHorizontally) {
+Line 1047: scope=16 : }
+Line 1048: scope=15 : }
+Line 1049: scope=14 : }
+Line 1056: scope=15 : ) {
+Line 1058: scope=14 : }
+Line 1059: scope=13 : }
+Line 1060: scope=12 : }
+Line 1063: scope=13 : LazyColumn(modifier = Modifier.fillMaxSize()) {
+Line 1064: scope=14 : itemsIndexed(displayedFlats) { rowIndex, flat ->
+Line 1065: scope=15 : Column(modifier = Modifier.fillMaxWidth()) {
+Line 1069: scope=16 : .drawBehind {
+Line 1076: scope=15 : }
+Line 1079: scope=16 : ) {
+Line 1086: scope=17 : .drawBehind {
+Line 1093: scope=16 : },
+Line 1095: scope=17 : ) {
+Line 1097: scope=16 : }
+Line 1116: scope=17 : .drawBehind {
+Line 1123: scope=16 : },
+Line 1125: scope=17 : ) {
+Line 1126: scope=18 : Column(horizontalAlignment = Alignment.CenterHorizontally) {
+Line 1129: scope=17 : }
+Line 1130: scope=16 : }
+Line 1137: scope=17 : Row(modifier = Modifier.horizontalScroll(horizontalScrollState)) {
+Line 1138: scope=18 : workColumns.sortedBy { it.displayOrder }.forEach { col ->
+Line 1159: scope=19 : .clickable {
+Line 1161: scope=18 : }
+Line 1162: scope=19 : .drawBehind {
+Line 1169: scope=18 : },
+Line 1171: scope=19 : ) {
+Line 1172: scope=20 : if (entry != null) {
+Line 1173: scope=21 : Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+Line 1176: scope=20 : }
+Line 1184: scope=19 : }
+Line 1185: scope=18 : }
+Line 1186: scope=17 : }
+Line 1187: scope=16 : }
+Line 1188: scope=15 : }
+Line 1190: scope=16 : if ((rowIndex + 1) % 5 == 0) {
+Line 1197: scope=17 : ) {
+Line 1199: scope=16 : }
+Line 1200: scope=15 : }
+Line 1201: scope=14 : }
+Line 1202: scope=13 : }
+Line 1203: scope=12 : }
+Line 1204: scope=11 : }
+Line 1205: scope=10 : }
+Line 1206: scope=9 : }
+Line 1207: scope=8 : }
+Line 1209: scope=9 : fun SummaryCard(title: String, value: String, modifier: Modifier = Modifier) {
+Line 1215: scope=10 : ) {
+Line 1216: scope=11 : Column(modifier = Modifier.padding(12.dp)) {
+Line 1220: scope=10 : }
+Line 1221: scope=9 : }
+Line 1222: scope=8 : }
+Line 1231: scope=9 : fun getStyleProperties(key: String, stylesMap: Map<String, String>): ExcelStyleProperties {
+Line 1239: scope=8 : }
+Line 1241: scope=9 : fun parseHexColor(hex: String?): Color? {
+Line 1243: scope=10 : return try {
+Line 1247: scope=9 : }
+Line 1248: scope=8 : }
+Line 1259: scope=9 : ) {
+Line 1279: scope=10 : Column(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
+Line 1287: scope=11 : ) {
+Line 1292: scope=12 : leadingIcon = {
+Line 1293: scope=13 : if (currentIsBold) {
+Line 1295: scope=12 : }
+Line 1296: scope=11 : }
+Line 1303: scope=12 : leadingIcon = {
+Line 1304: scope=13 : if (currentIsItalic) {
+Line 1306: scope=12 : }
+Line 1307: scope=11 : }
+Line 1309: scope=10 : }
+Line 1312: scope=11 : Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+Line 1317: scope=12 : ) {
+Line 1318: scope=13 : items(bgColors) { pair ->
+Line 1332: scope=14 : .clickable {
+Line 1334: scope=13 : },
+Line 1336: scope=14 : ) {
+Line 1337: scope=15 : if (colorHex.isEmpty()) {
+Line 1341: scope=14 : }
+Line 1342: scope=13 : }
+Line 1343: scope=12 : }
+Line 1344: scope=11 : }
+Line 1345: scope=10 : }
+Line 1348: scope=11 : Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+Line 1353: scope=12 : ) {
+Line 1354: scope=13 : items(textColors) { pair ->
+Line 1368: scope=14 : .clickable {
+Line 1370: scope=13 : },
+Line 1372: scope=14 : ) {
+Line 1373: scope=15 : if (colorHex.isEmpty()) {
+Line 1384: scope=14 : }
+Line 1385: scope=13 : }
+Line 1386: scope=12 : }
+Line 1387: scope=11 : }
+Line 1388: scope=10 : }
+Line 1389: scope=9 : }
+Line 1390: scope=8 : }

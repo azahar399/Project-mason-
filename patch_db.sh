@@ -1,0 +1,4 @@
+sed -i 's/exportSchema = false)/exportSchema = false)\n\n@Entity(\n    tableName = "daily_wage_entries",\n    foreignKeys = [\n        ForeignKey(entity = Person::class, parentColumns = ["id"], childColumns = ["personId"], onDelete = ForeignKey.CASCADE)\n    ],\n    indices = [Index(value = ["personId", "date"], unique = true)]\n)\ndata class DailyWageEntry(\n    @PrimaryKey(autoGenerate = true) val id: Int = 0,\n    val personId: Int,\n    val date: Long,\n    val unit: Double = 0.0,\n    val advance: Double = 0.0,\n    val reward: Double = 0.0,\n    val penalty: Double = 0.0\n)/g' app/src/main/java/com/example/data/Entities.kt
+
+sed -i 's/version = 4/version = 5/g' app/src/main/java/com/example/data/AppDatabase.kt
+sed -i 's/OtherWorkEntry::class, LedgerTransaction::class\]/OtherWorkEntry::class, LedgerTransaction::class, DailyWageEntry::class\]/g' app/src/main/java/com/example/data/AppDatabase.kt

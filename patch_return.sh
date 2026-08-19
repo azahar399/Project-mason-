@@ -1,0 +1,1 @@
+sed -i 's/totalAdvance = totalAdvance,/totalAdvance = totalAdvance,\n            totalReward = totalReward,\n            totalPenalty = totalPenalty,/g' app/src/main/java/com/example/ui/screens/WageLedgerScreen.kt

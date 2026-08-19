@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Gold stroke for Shield and M -->
+    <path
+        android:pathData="M54,20 C40,20 31,24 31,30 L31,54 C31,73 45,86 54,90 C63,86 77,73 77,54 L77,30 C77,24 68,20 54,20 Z"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeColor="#CA8A04"
+        android:fillColor="#151F32"
+        android:fillAlpha="0.8" />
+
+    <!-- Inner gold decorative shield accent -->
+    <path
+        android:pathData="M54,24 C43,24 35,27 35,32 L35,53 C35,69 47,80 54,84 C61,80 73,69 73,53 L73,32 C73,27 65,24 54,24 Z"
+        android:strokeWidth="1"
+        android:strokeColor="#FDE047"
+        android:fillColor="#00000000" />
+
+    <!-- Stylized silver 'P' letter on the left -->
+    <path
+        android:pathData="M39,38 L39,70 L44,70 L44,54 L49,54 C54,54 54,38 49,38 Z M44,43 L48,43 C50,43 50,49 48,49 L44,49 Z"
+        android:fillColor="#94A3B8"
+        android:fillType="nonZero" />
+
+    <!-- Stylized gold 'M' letter on the right -->
+    <path
+        android:pathData="M51,70 L51,38 L56,38 L62,50 L68,38 L73,38 L73,70 L68,70 L68,47 L62,58 L56,47 L56,70 Z"
+        android:fillColor="#FDE047" />
+</vector>

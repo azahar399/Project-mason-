@@ -1,0 +1,15 @@
+                    onClick = {
+                        val action = {
+                            coroutineScope.launch {
+                                val filteredEntries = filterEntries(allEntries, selectedFlatId, selectedPersonId, selectedWorkColumnId, selectedStatus, selectedDateMillis)
+                                sharePdf(context, filteredEntries, flats, persons, workColumns)
+                            }
+                        }
+                        if (activity != null) {
+                            adManager.showRewardedAd(activity) {
+                                action()
+                            }
+                        } else {
+                            action()
+                        }
+                    },
